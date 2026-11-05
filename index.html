@@ -369,44 +369,94 @@
   .project-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.07); }
   .project-card h3 {
     font-weight: 600; font-size: 1.05rem;
-    color: var(--text); margin-bottom: 0.3rem;
+    color: var(--text); margin-bottom: 0.6rem;
   }
   .project-eyebrow {
     font-family: var(--mono); font-size: 0.67rem;
     letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--eyebrow); margin-bottom: 0.7rem; font-weight: 500;
+    color: var(--eyebrow); margin-bottom: 0.5rem; font-weight: 500;
   }
-  .project-card > p {
+  .project-card > p:not(.project-eyebrow) {
     font-size: 0.91rem; color: var(--text2);
     line-height: 1.65; flex-grow: 1; margin-bottom: 1rem;
   }
-  .project-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1rem; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0; }
   .project-tags span {
     font-family: var(--mono); font-size: 0.68rem;
     color: var(--cream-tag-t); background: var(--cream-tag);
     border-radius: 5px; padding: 3px 8px;
   }
-  .project-links { display: flex; gap: 1rem; }
-  .project-links a {
-    font-family: var(--mono); font-size: 0.76rem;
-    color: var(--accent); text-decoration: none;
+
+  /* ══════════════════════════════════
+     § 3b  PUBLICATIONS
+  ══════════════════════════════════ */
+  #publications {
+    background: var(--warm-bg);
+    padding: 96px 0;
+  }
+  .pub-list {
+    border: 1px solid var(--border); border-radius: 12px;
+    overflow: hidden;
+  }
+  .pub-item {
+    display: grid; grid-template-columns: 90px 1fr auto;
+    gap: 1.5rem; align-items: center;
+    padding: 1.4rem 1.75rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+    transition: background 0.15s;
+  }
+  .pub-item:last-child { border-bottom: none; }
+  .pub-item:not(.pub-placeholder):hover { background: var(--bg); }
+  .pub-meta {
+    display: flex; flex-direction: column; gap: 5px;
+  }
+  .pub-year {
+    font-family: var(--mono); font-size: 0.88rem;
+    font-weight: 600; color: var(--text);
+  }
+  .pub-type {
+    font-family: var(--mono); font-size: 0.62rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); background: rgba(81,188,69,0.1);
+    border-radius: 4px; padding: 2px 6px; width: fit-content;
+  }
+  .pub-title {
+    font-size: 0.95rem; font-weight: 600;
+    color: var(--text); margin-bottom: 0.25rem; line-height: 1.4;
+  }
+  .pub-authors {
+    font-family: var(--mono); font-size: 0.75rem;
+    color: var(--text3); margin-bottom: 0.2rem;
+  }
+  .pub-venue {
+    font-size: 0.82rem; color: var(--text2); font-style: italic;
+  }
+  .pub-link a {
+    font-family: var(--mono); font-size: 0.75rem;
+    color: var(--accent); text-decoration: none; white-space: nowrap;
     border-bottom: 1px solid transparent; transition: border-color 0.15s;
   }
-  .project-links a:hover { border-color: var(--accent); }
-  .project-card.add-more {
-    border-style: dashed; align-items: center;
-    justify-content: center; min-height: 170px; text-align: center;
+  .pub-link a:hover { border-color: var(--accent); }
+  .pub-placeholder {
+    grid-template-columns: 1fr !important;
+    justify-items: center; padding: 1.4rem;
   }
-  .project-card.add-more p {
-    font-family: var(--mono); font-size: 0.76rem;
-    color: var(--text3); flex-grow: 0; margin: 0;
+  .pub-placeholder p {
+    font-family: var(--mono); font-size: 0.76rem; color: var(--text3);
+  }
+  @media (max-width: 600px) {
+    .pub-item { grid-template-columns: 1fr; gap: 0.75rem; }
+    .pub-link { justify-self: start; }
   }
 
   /* ══════════════════════════════════
      § 4  VALIDATION
   ══════════════════════════════════ */
   #validation {
-    background: var(--warm-bg);
+    background: var(--bg);
+    background-image: radial-gradient(circle, var(--dot-color) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
     padding: 96px 0;
   }
   .testimonials {
@@ -461,9 +511,7 @@
      § 5  CONTACT
   ══════════════════════════════════ */
   #contact {
-    background: var(--bg);
-    background-image: radial-gradient(circle, var(--dot-color) 1.5px, transparent 1.5px);
-    background-size: 24px 24px;
+    background: var(--warm-bg);
     padding: 96px 0 140px;
   }
   .contact-grid {
@@ -553,6 +601,7 @@
   <div class="nav-right">
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
+    <a href="#publications">Publications</a>
     <a href="#validation">Research</a>
     <a href="#contact">Contact</a>
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
@@ -563,11 +612,12 @@
 
 <!-- ── Side Scroll Spy ── -->
 <div class="section-indicator">
-  <a href="#hero"       class="indicator-item" data-section="hero">      <span class="indicator-dot"></span><span class="indicator-label">Home</span></a>
-  <a href="#about"      class="indicator-item" data-section="about">     <span class="indicator-dot"></span><span class="indicator-label">About</span></a>
-  <a href="#projects"   class="indicator-item" data-section="projects">  <span class="indicator-dot"></span><span class="indicator-label">Projects</span></a>
-  <a href="#validation" class="indicator-item" data-section="validation"><span class="indicator-dot"></span><span class="indicator-label">Research</span></a>
-  <a href="#contact"    class="indicator-item" data-section="contact">   <span class="indicator-dot"></span><span class="indicator-label">Contact</span></a>
+  <a href="#hero"         class="indicator-item" data-section="hero">        <span class="indicator-dot"></span><span class="indicator-label">Home</span></a>
+  <a href="#about"        class="indicator-item" data-section="about">       <span class="indicator-dot"></span><span class="indicator-label">About</span></a>
+  <a href="#projects"     class="indicator-item" data-section="projects">    <span class="indicator-dot"></span><span class="indicator-label">Projects</span></a>
+  <a href="#publications" class="indicator-item" data-section="publications"><span class="indicator-dot"></span><span class="indicator-label">Publications</span></a>
+  <a href="#validation"   class="indicator-item" data-section="validation">  <span class="indicator-dot"></span><span class="indicator-label">Research</span></a>
+  <a href="#contact"      class="indicator-item" data-section="contact">     <span class="indicator-dot"></span><span class="indicator-label">Contact</span></a>
 </div>
 
 <!-- ══════════════════════
@@ -685,51 +735,68 @@
     <div class="section-header">
       <p class="section-eyebrow">Selected Work</p>
       <h2 class="section-heading">Projects</h2>
-      <p>Problem → approach → outcome. Replace placeholders with your real titles, descriptions, tags, and links.</p>
     </div>
     <div class="project-grid">
 
       <div class="project-card">
-        <h3> AI Surgical Robotics Research</h3>
-        <p class="project-eyebrow">ML PIPELINE · ONGOING</p>
-        <p>Contributing to AI research in robotic surgery with Science Deployment, a Stanford-originated research group. Working with de-identified laparoscopic and robotic surgical videos to develop annotation pipelines for identifying surgical anatomy, instruments, procedural actions, and phases. Supporting the development of high-quality datasets for training and evaluating vision-language models and advancing intelligent surgical systems.</p>
+        <p class="project-eyebrow">Deployment Science · Stanford-originated · Ongoing</p>
+        <h3>AI Surgical Robotics</h3>
+        <p>Developing annotation pipelines for de-identified laparoscopic and robotic surgical video — labeling anatomy, instruments, and procedural phases to train vision-language models for intelligent surgical systems.</p>
         <div class="project-tags">
-          <span>Tag</span><span>Tag</span><span>Tag</span>
-        </div>
-        <div class="project-links">
-          <a href="#" target="_blank" rel="noopener noreferrer">github ↗</a>
-          <a href="#" target="_blank" rel="noopener noreferrer">demo ↗</a>
+          <span>VLMs</span><span>Data Annotation</span><span>Computer Vision</span><span>Surgical AI</span>
         </div>
       </div>
 
       <div class="project-card">
+        <p class="project-eyebrow">Klein Lab · Northwestern · Complete</p>
         <h3>Amyloid Beta Oligomer Research</h3>
-        <p class="project-eyebrow">KLEIN LAB · NORTHWESTERN · COMPLETE</p>
-        <p>Investigated whether NU-9, a potential therapeutic compound, could mitigate the effects of amyloid-beta oligomers implicated in Alzheimer’s disease. Conducted signal-to-noise ratio assays and developed foundational laboratory skills in cell culture and cryopreservation to support the investigation of potential therapeutic interventions.</p>
+        <p>Investigated whether NU-9 could mitigate amyloid-beta oligomer toxicity in Alzheimer's disease. Ran SNR assays and built hands-on skills in cell culture and cryopreservation to evaluate the compound's therapeutic potential.</p>
         <div class="project-tags">
-          <span>Tag</span><span>Tag</span><span>Tag</span>
-        </div>
-        <div class="project-links">
-          <a href="#" target="_blank" rel="noopener noreferrer">github ↗</a>
-          <a href="#" target="_blank" rel="noopener noreferrer">demo ↗</a>
+          <span>Cell Culture</span><span>Cryopreservation</span><span>Neuroscience</span><span>Alzheimer's</span>
         </div>
       </div>
 
       <div class="project-card">
-        <h3>TBNC Research</h3>
-        <p class="project-eyebrow">MINSHALL LAB · UNIVERISTY OF ILLINOIS-CHICAGO · COMPLETE</p>
-        <p>Investigated the role of the tumor microenvironment in triple-negative breast cancer (TNBC), focusing on mechanisms that may influence cancer progression and therapeutic response. Supported research evaluating NS1643 through cell-based experiments, including transepithelial electrical resistance (TEER) assays, to examine changes in cellular barrier integrity. Gained experience in experimental design, cell culture, and cancer biology research.</p>
+        <p class="project-eyebrow">Minshall Lab · UIC · Complete</p>
+        <h3>Triple-Negative Breast Cancer</h3>
+        <p>Studied how NS1643 affects cellular barrier integrity in TNBC using TEER assays. Investigated tumor microenvironment mechanisms influencing cancer progression and therapeutic response.</p>
         <div class="project-tags">
-          <span>Tag</span><span>Tag</span><span>Tag</span>
-        </div>
-        <div class="project-links">
-          <a href="#" target="_blank" rel="noopener noreferrer">github ↗</a>
-          <a href="#" target="_blank" rel="noopener noreferrer">demo ↗</a>
+          <span>TEER Assay</span><span>Cell Culture</span><span>Cancer Biology</span><span>TNBC</span>
         </div>
       </div>
 
-      <div class="project-card add-more">
-        <p>+ add another project</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════
+     § 3b  PUBLICATIONS
+══════════════════════ -->
+<section id="publications">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-eyebrow">Written Work</p>
+      <h2 class="section-heading">Publications</h2>
+    </div>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-meta">
+          <span class="pub-year">2025</span>
+          <span class="pub-type">Poster</span>
+        </div>
+        <div class="pub-body">
+          <p class="pub-title">Add your paper or poster title here</p>
+          <p class="pub-authors">Patel, R. et al.</p>
+          <p class="pub-venue">Conference / Journal Name</p>
+        </div>
+        <div class="pub-link">
+          <a href="#">view ↗</a>
+        </div>
+      </div>
+
+      <div class="pub-item pub-placeholder">
+        <p>+ add another publication</p>
       </div>
 
     </div>
@@ -843,7 +910,7 @@
 
   // Scroll spy
   const items = document.querySelectorAll('.indicator-item');
-  const sects = ['hero','about','projects','validation','contact']
+  const sects = ['hero','about','projects','publications','validation','contact']
     .map(id => document.getElementById(id)).filter(Boolean);
   const spy = new IntersectionObserver(
     entries => entries.forEach(e => { if (e.isIntersecting) items.forEach(i => i.classList.toggle('active', i.dataset.section === e.target.id)); }),

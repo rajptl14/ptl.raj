@@ -1,515 +1,865 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Raj Patel — undergraduate researcher building computational tools for biomedical discovery." />
-<title>Raj Patel</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231f9d5c'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='58' fill='white' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
-<meta name="theme-color" content="#f2efe6" media="(prefers-color-scheme: light)" />
-<meta name="theme-color" content="#14140f" media="(prefers-color-scheme: dark)" />
-<meta name="color-scheme" content="light dark" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Raj Patel — Research Portfolio" />
-<meta property="og:description" content="Undergraduate researcher building computational tools for biomedical discovery — neuroscience, oncology, and surgical medicine." />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Raj Patel — Research Portfolio" />
-<meta name="twitter:description" content="Undergraduate researcher building computational tools for biomedical discovery." />
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Raj Patel",
-  "email": "mailto:rhpatel6@wisc.edu",
-  "url": "https://github.com/rajptl14",
-  "affiliation": {
-    "@type": "CollegeOrUniversity",
-    "name": "University of Wisconsin–Madison"
-  },
-  "sameAs": ["https://github.com/rajptl14"],
-  "jobTitle": "Undergraduate Researcher"
-}
-</script>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raj Patel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  /* Palette: warm paper ground (à la the cream/kraft sites) crossed with a
-     sage/forest accent system, plus a copper secondary — not a straight
-     lift of any one source's colors. */
+  /* ── Tokens ── */
   :root {
-    --bg: #f2efe6;
-    --bg2: #e9e3d2;
-    --surface: rgba(255,253,247,.7);
-    --ink: #201f18;
-    --body: #4d4a3f;
-    --muted: #7d7a6c;
-    --accent: #1f9d5c;
-    --accent-soft: #d3f0dd;
-    --accent2: #e8611f;
-    --accent2-soft: #fbe0cf;
-    --accent3: #6d4fe0;
-    --accent3-soft: #e3ddfb;
-    --line: #d8d1ba;
-    --shadow: 0 18px 46px rgba(32,31,24,.09);
+    --bg:          #fafafa;
+    --text:        #0f0f0f;
+    --text2:       #444;
+    --text3:       #888;
+    --card:        #ffffff;
+    --border:      #e8e8e8;
+    --border2:     #e0e0e0;
+    --nav-bg:      rgba(250,250,250,0.95);
+    --nav-border:  rgba(0,0,0,0.07);
+    --dot-color:   rgba(0,0,0,0.07);
+    --accent:      #51bc45;
+    --accent-dark: #3da333;
+    --warm-bg:     #f5f5f5;
+    --cream-card:  #ffffff;
+    --cream-border:#e8e8e8;
+    --cream-tag:   #f0f0f0;
+    --cream-tag-t: #555;
+    --eyebrow:     #888;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --mono:  'DM Mono', monospace;
+    --sans:  'DM Sans', sans-serif;
   }
-  html.dark {
-    --bg: #14140f;
-    --bg2: #1b1a14;
-    --surface: rgba(26,25,19,.7);
-    --ink: #efe9d8;
-    --body: #b3ad98;
-    --muted: #7a7666;
-    --accent: #3fd47f;
-    --accent-soft: #1c3d29;
-    --accent2: #ff8a42;
-    --accent2-soft: #3f2716;
-    --accent3: #9c85ff;
-    --accent3-soft: #2b2350;
-    --line: #302e23;
-    --shadow: 0 18px 46px rgba(0,0,0,.4);
+  html[data-theme="dark"] {
+    --bg:          #0f0f0f;
+    --text:        #f0f0f0;
+    --text2:       #999;
+    --text3:       #555;
+    --card:        #1a1a1a;
+    --border:      #272727;
+    --border2:     #2f2f2f;
+    --nav-bg:      rgba(15,15,15,0.95);
+    --nav-border:  rgba(255,255,255,0.07);
+    --dot-color:   rgba(255,255,255,0.06);
+    --warm-bg:     #141414;
+    --cream-card:  #1a1a1a;
+    --cream-border:#272727;
+    --cream-tag:   #222;
+    --cream-tag-t: #888;
+    --eyebrow:     #666;
   }
 
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  /* ── Reset ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-padding-top: 68px; scroll-behavior: smooth; }
   body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--body);
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--sans);
+    background: var(--bg); color: var(--text);
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
-    transition: background .3s ease, color .3s ease;
+    -moz-osx-font-smoothing: grayscale;
   }
-  body::before {
-    content: "";
-    position: fixed; inset: 0; pointer-events: none; z-index: 0;
-    opacity: .5;
-    background-image: radial-gradient(rgba(63,107,77,.28) 1px, transparent 1.1px);
-    background-size: 23px 23px;
-    mask-image: linear-gradient(to right, transparent 3%, #000 40%, transparent 98%);
+
+  /* ── Navbar ── */
+  .navbar {
+    position: sticky; top: 0; z-index: 1000;
+    height: 64px;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 36px;
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--nav-border);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
   }
-  a { color: inherit; text-decoration: none; }
-  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
-  .skip-link {
-    position: absolute; left: -999px; top: 0; z-index: 200;
-    background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 6px;
-    font-family: 'JetBrains Mono', monospace; font-size: 13px;
+  .nav-logo {
+    font-family: var(--serif); font-size: 1.2rem;
+    color: var(--text); text-decoration: none; letter-spacing: 0.01em;
   }
-  .skip-link:focus { left: 16px; top: 16px; }
-  .mono { font-family: 'JetBrains Mono', monospace; }
-  .serif { font-family: 'Newsreader', serif; }
-
-  .shell { width: min(860px, calc(100% - 48px)); margin: 0 auto; padding: 70px 0 96px; position: relative; z-index: 1; }
-
-  /* ───── custom cursor (desktop only) ───── */
-  #cursor-ring, #cursor-dot { position: fixed; top: 0; left: 0; z-index: 100; pointer-events: none; opacity: 0; transform: translate(-50%,-50%); }
-  #cursor-ring { width: 30px; height: 30px; border: 1.5px solid var(--accent); border-radius: 50%; transition: width .18s, height .18s, background .18s, opacity .18s; }
-  #cursor-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); transition: opacity .18s; }
-  body.cursor-ready #cursor-ring, body.cursor-ready #cursor-dot { opacity: .75; }
-  #cursor-ring.is-active { width: 50px; height: 50px; background: rgba(63,107,77,.1); }
-  @media (hover: hover) and (pointer: fine) { body, a, button { cursor: none; } }
-  @media (hover: none), (pointer: coarse) { #cursor-ring, #cursor-dot { display: none; } }
-
-  /* ───── theme toggle ───── */
+  .nav-right { display: flex; align-items: center; gap: 4px; }
+  .nav-right a {
+    text-decoration: none; color: var(--text2);
+    font-size: 0.83rem; font-weight: 500;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 6px 11px; border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
+  }
+  .nav-right a:hover { color: var(--text); background: var(--border); }
   .theme-toggle {
-    position: fixed; top: 24px; right: max(24px, calc(50vw - 550px)); z-index: 40;
-    width: 40px; height: 40px; display: grid; place-items: center;
-    border: 1px solid var(--line); border-radius: 999px;
-    background: var(--surface); backdrop-filter: blur(8px);
-    color: var(--ink); transition: all .2s ease;
+    background: none; border: 1px solid var(--border2);
+    width: 36px; height: 36px; border-radius: 50%;
+    cursor: pointer; font-size: 1.1rem;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text); margin-left: 8px;
+    transition: border-color 0.15s;
   }
-  .theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
-  .theme-toggle svg { width: 17px; height: 17px; }
-  @media (max-width: 720px) { .theme-toggle { top: auto; bottom: 76px; right: 16px; } }
+  .theme-toggle:hover { border-color: var(--text3); }
 
-  .rail { position: fixed; left: max(26px, calc(50vw - 550px)); top: 50%; z-index: 40; transform: translateY(-50%); }
-  .rail::before { content: ""; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 1px; background: var(--line); }
-  .rail a { position: relative; display: flex; align-items: center; gap: 11px; min-height: 76px; color: var(--muted); text-decoration: none; font: 400 9px 'JetBrains Mono', monospace; letter-spacing: .07em; text-transform: uppercase; }
-  .rail-mark { width: 11px; height: 11px; z-index: 1; border: 1.5px solid #9aa393; background: var(--bg); transition: all .25s ease; flex-shrink: 0; }
-  .rail a:nth-child(1) .rail-mark { border-radius: 50%; }
-  .rail a:nth-child(2) .rail-mark { border-radius: 2px; }
-  .rail a:nth-child(3) .rail-mark { transform: rotate(45deg); }
-  .rail a:nth-child(4) .rail-mark { clip-path: polygon(50% 4%, 96% 92%, 4% 92%); border-radius: 0; }
-  .rail a:nth-child(5) .rail-mark { clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); border-radius: 0; }
-  .rail-label { opacity: 0; transform: translateX(-4px); transition: all .25s ease; }
-  .rail a:hover .rail-label, .rail a.active .rail-label { opacity: 1; transform: none; }
-  .rail a.active { color: var(--accent); }
-  .rail a.active .rail-mark { border-color: var(--accent); background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
-
-  /* ───── hero ───── */
-  .hero { position: relative; padding-bottom: 60px; }
-  #net { position: absolute; inset: -30px -40px 0; z-index: 0; pointer-events: none; mask-image: linear-gradient(to bottom, #000 55%, transparent 100%); }
-  .hero-inner { position: relative; z-index: 1; }
-  .hero-top { display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap; }
-
-  .portrait {
-    position: relative; width: 128px; height: 128px; border-radius: 50%; flex: 0 0 auto;
-    border: 3px solid var(--accent); background: var(--surface);
-    display: grid; place-items: center; overflow: hidden; color: var(--muted);
-    font-family: 'JetBrains Mono', monospace; font-size: 10px; text-align: center; padding: 6px;
-    box-shadow: 0 0 0 5px var(--accent-soft);
+  /* ── Side Scroll Spy ── */
+  .section-indicator {
+    position: fixed; top: 50%; left: 18px;
+    transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 1.3rem;
+    z-index: 900;
   }
-  .portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-  .hero-copy { flex: 1 1 320px; min-width: 240px; }
-
-  .status-badge {
-    display: inline-flex; align-items: center; gap: .45rem;
-    font-family: 'JetBrains Mono', monospace; font-size: .72rem; letter-spacing: .03em;
-    color: var(--accent); background: var(--accent-soft); border: 1px solid var(--line);
-    padding: 4px 12px; border-radius: 999px; margin-bottom: 18px;
+  .indicator-item { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; }
+  .indicator-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--border2); flex-shrink: 0;
+    transition: background 0.25s, transform 0.25s;
   }
-  .status-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s ease-in-out infinite; }
-  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .4; } }
-
-  h1 { margin: 0 0 14px; color: var(--ink); font: 500 clamp(40px, 6.5vw, 60px)/1.02 'Newsreader', serif; letter-spacing: -.03em; }
-  h1 .accent { font-style: italic; color: var(--accent2); }
-
-  .hero-sub { font-size: 1.08rem; color: var(--body); max-width: 56ch; margin: 0 0 18px; }
-
-  .hero-meta { display: flex; flex-wrap: wrap; gap: 0 1.4rem; font-family: 'JetBrains Mono', monospace; font-size: .78rem; color: var(--muted); margin-bottom: 20px; }
-  .hero-meta strong { color: var(--ink); font-weight: 500; }
-
-  .hero-links { display: flex; flex-wrap: wrap; gap: .45rem; }
-  .hero-links a {
-    font-family: 'JetBrains Mono', monospace; font-size: .76rem; color: var(--ink);
-    border: 1px solid var(--line); padding: 6px 12px; border-radius: 6px;
-    background: var(--surface); transition: all .18s ease;
+  .indicator-label {
+    font-family: var(--mono); font-size: 0.66rem;
+    letter-spacing: 0.07em; text-transform: uppercase;
+    color: var(--text3); opacity: 0; transform: translateX(-4px);
+    transition: opacity 0.25s, transform 0.25s, color 0.25s;
+    white-space: nowrap;
   }
-  .hero-links a::before { content: "↗ "; opacity: .5; }
-  .hero-links a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+  .indicator-item:hover .indicator-label,
+  .indicator-item.active .indicator-label { opacity: 1; transform: translateX(0); }
+  .indicator-item.active .indicator-dot { background: var(--accent); transform: scale(1.4); }
+  .indicator-item.active .indicator-label { color: var(--accent); }
+  @media (max-width: 960px) { .section-indicator { display: none; } }
 
-  .focus-box { margin-top: 34px; padding: 22px 24px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 14px; background: var(--surface); box-shadow: var(--shadow); }
-  .focus-box p { margin: 0; font-family: 'Newsreader', serif; font-size: 17px; color: var(--ink); }
-  .focus-box p + p { margin-top: 8px; color: var(--muted); font-size: 15px; }
-
-  /* ───── sections ───── */
-  section { scroll-margin-top: 30px; padding: 50px 0; border-top: 1px solid var(--line); }
-  section:first-of-type { border-top: none; }
-  .section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 26px; }
-  h2 { margin: 0; color: var(--ink); font: 500 30px/1 'Newsreader', serif; letter-spacing: -.02em; }
-  .kicker { color: var(--muted); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
-
-  /* skills */
-  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .skill-group { padding: 18px 20px; border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 12px; background: var(--surface); }
-  .skill-group h3 { margin: 0 0 12px; font-family: 'DM Sans', sans-serif; font-size: 12.5px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .05em; }
-  .skill-list { display: flex; flex-wrap: wrap; gap: 6px; }
-  .skill-list span { padding: 4px 9px; border: 1px solid var(--line); border-radius: 6px; font-size: 11px; color: var(--body); }
-
-  /* projects: compact two-column build cards */
-  .builds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .85rem; }
-  .build-card { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); padding: 1.15rem 1.3rem; border-radius: 10px; transition: all .2s ease; }
-  .build-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-  .build-name { font-family: 'Newsreader', serif; font-weight: 500; font-size: 1.15rem; color: var(--ink); margin-bottom: .3rem; }
-  .build-stat { font-family: 'JetBrains Mono', monospace; font-size: .66rem; color: var(--accent2); letter-spacing: .04em; text-transform: uppercase; margin-bottom: .55rem; font-weight: 500; }
-  .build-desc { font-size: .87rem; color: var(--body); line-height: 1.55; }
-  .build-stack { margin-top: .7rem; display: flex; flex-wrap: wrap; gap: .3rem; }
-  .stack-pill { font-family: 'JetBrains Mono', monospace; font-size: .65rem; background: var(--bg2); color: var(--muted); border: 1px solid var(--line); padding: 2px 7px; border-radius: 4px; }
-  .build-link { display: inline-block; margin-top: .6rem; font-family: 'JetBrains Mono', monospace; font-size: .74rem; color: var(--accent); }
-  .build-link:hover { text-decoration: underline; }
-
-  /* publications: formal list */
-  .publication-list { display: flex; flex-direction: column; }
-  .publication { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--line); }
-  .publication:first-child { border-top: 1px solid var(--line); }
-  .publication h3 { margin: 0; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; color: var(--ink); }
-  .authors { margin: 6px 0 0; color: var(--muted); font-size: 12px; }
-  .authors strong { color: var(--ink); font-weight: 600; }
-  .venue { margin: 6px 0 0; color: var(--accent); font: 500 11px/1.4 'JetBrains Mono', monospace; letter-spacing: .02em; }
-  .paper-link { color: var(--accent); text-decoration: none; font-size: 18px; padding: 8px; transition: transform .18s ease; }
-  .paper-link:hover { transform: translate(2px,-2px); }
-
-  /* timeline with tags */
-  .timeline-item { display: grid; grid-template-columns: 90px 1fr; gap: 1.1rem; padding: .55rem 0; margin-bottom: .3rem; align-items: baseline; }
-  .timeline-date { font-family: 'JetBrains Mono', monospace; font-size: .72rem; color: var(--muted); letter-spacing: .02em; text-transform: uppercase; }
-  .timeline-content { font-size: .92rem; color: var(--body); line-height: 1.55; }
-  .tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: .6rem; letter-spacing: .04em; text-transform: uppercase; padding: 1px 7px; border-radius: 4px; margin-right: 7px; font-weight: 500; vertical-align: 1px; }
-  .tag-collab   { background: var(--accent-soft); color: var(--accent); }
-  .tag-research { background: var(--accent2-soft); color: var(--accent2); }
-  .tag-found    { background: var(--accent3-soft); color: var(--accent3); }
-  .tag-milestone{ background: var(--bg2); color: var(--muted); }
-
-  /* recognition: two-column dashed list */
-  .recog-list { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 2rem; }
-  .recog-list li { break-inside: avoid; padding: .5rem 0; border-bottom: 1px dashed var(--line); font-size: .88rem; display: flex; justify-content: space-between; gap: .6rem; align-items: baseline; }
-  .recog-list li span:first-child { color: var(--ink); }
-  .recog-list li span:last-child { font-family: 'JetBrains Mono', monospace; font-size: .68rem; color: var(--muted); flex-shrink: 0; }
-
-  footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; padding-top: 40px; color: var(--muted); font: italic 14px 'Newsreader', serif; }
-  footer a { text-underline-offset: 3px; }
-  footer a:hover { color: var(--accent); }
-
-  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
-  .reveal.visible { opacity: 1; transform: none; }
-
-  @media (max-width: 1040px) { .rail { left: 16px; } .rail-label { display: none; } }
-  @media (max-width: 720px) {
-    .shell { padding-top: 40px; }
-    .builds-grid, .skills-grid { grid-template-columns: 1fr; }
-    .recog-list { columns: 1; }
-    .rail { top: auto; left: 50%; bottom: 12px; transform: translateX(-50%); padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(8px); box-shadow: var(--shadow); }
-    .rail::before { left: 18px; right: 18px; top: 10px; bottom: auto; width: auto; height: 1px; }
-    .rail a { display: inline-flex; min-height: 0; padding: 0 14px; }
-    .rail-label { display: none; }
-    .timeline-item { grid-template-columns: 1fr; gap: .2rem; }
+  /* ══════════════════════════════════
+     § 1  HERO — Full-bleed + overlay
+  ══════════════════════════════════ */
+  #hero {
+    position: relative;
+    width: 100%; height: calc(100vh - 64px);
+    overflow: hidden;
+    display: flex; align-items: stretch;
   }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after { animation: none !important; transition: none !important; }
-    .reveal { opacity: 1; transform: none; }
+  .hero-bg {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    display: block;
+  }
+  /* subtle dark gradient so text on right is legible */
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(0,0,0,0.10) 0%,
+      rgba(0,0,0,0.02) 45%,
+      rgba(0,0,0,0.52) 100%
+    );
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: flex-end;
+    width: 100%; padding: 0 7vw;
+  }
+  .hero-text-panel {
+    max-width: 400px;
+    text-align: right;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono); font-size: 0.72rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.7); margin-bottom: 0.9rem;
+  }
+  .hero h1 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(2.6rem, 5.5vw, 3.8rem);
+    line-height: 1.08; color: #fff;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em { color: var(--accent); font-style: italic; }
+  .hero-sub {
+    font-size: 1rem; color: rgba(255,255,255,0.82);
+    line-height: 1.7; margin-bottom: 1.75rem;
+    max-width: 360px; margin-left: auto;
+  }
+  .hero-ctas { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-block; text-decoration: none;
+    background: var(--accent); color: #fff;
+    font-size: 0.85rem; font-weight: 600;
+    padding: 11px 22px; border-radius: 8px;
+    border: 1.5px solid var(--accent);
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); transform: translateY(-1px); }
+  .btn-ghost-light {
+    display: inline-block; text-decoration: none;
+    background: rgba(255,255,255,0.12);
+    color: #fff; font-size: 0.85rem; font-weight: 600;
+    padding: 11px 22px; border-radius: 8px;
+    border: 1.5px solid rgba(255,255,255,0.45);
+    transition: background 0.2s, transform 0.15s;
+    backdrop-filter: blur(4px);
+  }
+  .btn-ghost-light:hover { background: rgba(255,255,255,0.22); transform: translateY(-1px); }
+  .hero-social {
+    display: flex; gap: 1.1rem; justify-content: flex-end;
+    margin-top: 1.4rem;
+  }
+  .hero-social a {
+    font-family: var(--mono); font-size: 0.72rem;
+    letter-spacing: 0.05em; color: rgba(255,255,255,0.6);
+    text-decoration: none; transition: color 0.15s;
+  }
+  .hero-social a:hover { color: #fff; }
+  /* scroll hint */
+  .scroll-hint {
+    position: absolute; bottom: 28px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center;
+    gap: 6px; z-index: 3; opacity: 0.6;
+    animation: bounce 2.4s ease-in-out infinite;
+  }
+  .scroll-hint span {
+    font-family: var(--mono); font-size: 0.65rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #fff;
+  }
+  .scroll-hint svg { color: #fff; }
+  @keyframes bounce {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50%      { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* ══════════════════════════════════
+     RIBBON — scrolling affiliations
+  ══════════════════════════════════ */
+  .ribbon {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+    overflow: hidden;
+  }
+  .ribbon-label {
+    font-family: var(--mono); font-size: 0.68rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text3); text-align: center;
+    margin-bottom: 14px;
+  }
+  .ribbon-track {
+    display: flex; align-items: center;
+    gap: 3.5rem; padding: 0 3.5rem;
+    animation: scroll-ribbon 22s linear infinite;
+    width: max-content;
+  }
+  .ribbon-track:hover { animation-play-state: paused; }
+  @keyframes scroll-ribbon {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .ribbon-item {
+    font-family: var(--mono); font-size: 0.88rem;
+    font-weight: 600; letter-spacing: 0.08em;
+    color: var(--text3); text-transform: uppercase;
+    white-space: nowrap; opacity: 0.45;
+    transition: opacity 0.2s;
+  }
+  .ribbon-item:hover { opacity: 1; }
+
+  /* ══════════════════════════════════
+     § 2  ABOUT — warm bg, 2-col split
+  ══════════════════════════════════ */
+  #about {
+    background: var(--warm-bg);
+    padding: 96px 0;
+  }
+  .about-inner {
+    max-width: 1040px; margin: 0 auto; padding: 0 36px;
+    display: grid; grid-template-columns: 1fr 420px;
+    gap: 5rem; align-items: center;
+  }
+  .about-left {}
+  .section-eyebrow {
+    font-family: var(--mono); font-size: 0.7rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--eyebrow); margin-bottom: 0.6rem;
+  }
+  .section-heading {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.12;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+  .section-tagline {
+    font-family: var(--mono); font-size: 0.75rem;
+    letter-spacing: 0.07em; text-transform: uppercase;
+    color: var(--eyebrow); font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  .about-left p {
+    font-size: 1rem; color: var(--text2);
+    line-height: 1.78; margin-bottom: 1.1rem;
+  }
+  .about-left p:last-of-type { margin-bottom: 1.75rem; }
+  .btn-warm {
+    display: inline-block; text-decoration: none;
+    background: var(--accent); color: #fff;
+    font-size: 0.82rem; font-weight: 600;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 12px 26px; border-radius: 6px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-warm:hover { background: var(--accent-dark); transform: translateY(-1px); }
+  .about-photo-wrap {
+    position: relative;
+  }
+  .about-photo {
+    width: 100%; aspect-ratio: 3/4;
+    object-fit: cover; border-radius: 12px;
+    display: block;
+  }
+  /* decorative dot pattern behind photo */
+  .about-photo-wrap::before {
+    content: '';
+    position: absolute; top: -16px; right: -16px;
+    width: 100%; height: 100%;
+    border-radius: 12px;
+    background-image: radial-gradient(circle, rgba(81,188,69,0.25) 1.5px, transparent 1.5px);
+    background-size: 18px 18px;
+    z-index: 0;
+  }
+  .about-photo { position: relative; z-index: 1; }
+
+  /* Skill pills below about text */
+  .skill-grid {
+    display: flex; flex-direction: column; gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .skill-row h5 {
+    font-family: var(--mono); font-size: 0.66rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text3); margin-bottom: 0.5rem;
+  }
+  .skill-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .skill-pill {
+    font-family: var(--mono); font-size: 0.73rem;
+    color: var(--text2); background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px; padding: 4px 10px;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .skill-pill:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ══════════════════════════════════
+     § 3  PROJECTS
+  ══════════════════════════════════ */
+  #projects {
+    background: var(--bg);
+    background-image: radial-gradient(circle, var(--dot-color) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+    padding: 96px 0;
+  }
+  .section-inner {
+    max-width: 1000px; margin: 0 auto; padding: 0 36px;
+  }
+  .section-header { margin-bottom: 2.75rem; }
+  .section-header .section-eyebrow { color: var(--text3); }
+  .section-header .section-heading { font-size: 2.1rem; margin-bottom: 0.6rem; }
+  .section-header p { font-size: 1rem; color: var(--text2); max-width: 580px; }
+  .project-grid {
+    display: grid; grid-template-columns: repeat(2,1fr); gap: 1.25rem;
+  }
+  .project-card {
+    background: var(--cream-card); border: 1px solid var(--cream-border);
+    border-radius: 12px; padding: 1.5rem;
+    display: flex; flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .project-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.07); }
+  .project-card h3 {
+    font-weight: 600; font-size: 1.05rem;
+    color: var(--text); margin-bottom: 0.3rem;
+  }
+  .project-eyebrow {
+    font-family: var(--mono); font-size: 0.67rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--eyebrow); margin-bottom: 0.7rem; font-weight: 500;
+  }
+  .project-card > p {
+    font-size: 0.91rem; color: var(--text2);
+    line-height: 1.65; flex-grow: 1; margin-bottom: 1rem;
+  }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1rem; }
+  .project-tags span {
+    font-family: var(--mono); font-size: 0.68rem;
+    color: var(--cream-tag-t); background: var(--cream-tag);
+    border-radius: 5px; padding: 3px 8px;
+  }
+  .project-links { display: flex; gap: 1rem; }
+  .project-links a {
+    font-family: var(--mono); font-size: 0.76rem;
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid transparent; transition: border-color 0.15s;
+  }
+  .project-links a:hover { border-color: var(--accent); }
+  .project-card.add-more {
+    border-style: dashed; align-items: center;
+    justify-content: center; min-height: 170px; text-align: center;
+  }
+  .project-card.add-more p {
+    font-family: var(--mono); font-size: 0.76rem;
+    color: var(--text3); flex-grow: 0; margin: 0;
+  }
+
+  /* ══════════════════════════════════
+     § 4  VALIDATION
+  ══════════════════════════════════ */
+  #validation {
+    background: var(--warm-bg);
+    padding: 96px 0;
+  }
+  .testimonials {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+  .t-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.75rem;
+    display: flex; flex-direction: column; gap: 1.2rem;
+  }
+  .t-quote {
+    font-family: var(--serif); font-size: 1.05rem;
+    font-style: italic; line-height: 1.72; color: var(--text); flex-grow: 1;
+  }
+  .t-quote::before { content: '\201C'; color: var(--accent); font-size: 1.5rem; line-height: 0; vertical-align: -0.35em; margin-right: 3px; }
+  .t-author { display: flex; align-items: center; gap: 0.75rem; }
+  .t-avatar {
+    width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+    background: var(--border); display: flex; align-items: center;
+    justify-content: center; font-family: var(--mono);
+    font-size: 0.75rem; color: var(--text3); overflow: hidden;
+  }
+  .t-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .t-info strong { display: block; font-size: 0.88rem; font-weight: 600; }
+  .t-info span { font-size: 0.78rem; color: var(--text3); }
+  .t-card.placeholder {
+    align-items: center; justify-content: center;
+    border-style: dashed; min-height: 160px;
+  }
+  .t-card.placeholder p { font-family: var(--mono); font-size: 0.76rem; color: var(--text3); }
+  /* Affiliation ribbon (static) */
+  .aff-ribbon { border-top: 1px solid var(--border); padding-top: 2.25rem; }
+  .aff-ribbon p {
+    font-family: var(--mono); font-size: 0.68rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text3); text-align: center; margin-bottom: 1.5rem;
+  }
+  .aff-logos {
+    display: flex; justify-content: center; align-items: center;
+    flex-wrap: wrap; gap: 2.5rem;
+  }
+  .aff-logo {
+    font-family: var(--mono); font-size: 0.85rem;
+    font-weight: 700; letter-spacing: 0.08em;
+    color: var(--text3); text-transform: uppercase;
+    opacity: 0.4; transition: opacity 0.2s;
+  }
+  .aff-logo:hover { opacity: 1; }
+
+  /* ══════════════════════════════════
+     § 5  CONTACT
+  ══════════════════════════════════ */
+  #contact {
+    background: var(--bg);
+    background-image: radial-gradient(circle, var(--dot-color) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+    padding: 96px 0 140px;
+  }
+  .contact-grid {
+    max-width: 1000px; margin: 0 auto; padding: 0 36px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
+  }
+  .contact-left .section-heading { font-size: 2.2rem; margin-bottom: 0.75rem; }
+  .contact-left p { font-size: 1rem; color: var(--text2); line-height: 1.75; margin-bottom: 1.5rem; }
+  .contact-email a {
+    font-family: var(--mono); font-size: 0.9rem;
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid transparent; transition: border-color 0.15s;
+  }
+  .contact-email a:hover { border-color: var(--accent); }
+  .social-rack { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.75rem; }
+  .social-rack a {
+    display: flex; align-items: center; gap: 0.4rem;
+    font-family: var(--mono); font-size: 0.75rem;
+    color: var(--text3); text-decoration: none;
+    padding: 8px 13px; border: 1px solid var(--border);
+    border-radius: 8px; transition: color 0.15s, border-color 0.15s;
+  }
+  .social-rack a:hover { color: var(--text); border-color: var(--text3); }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label {
+    font-family: var(--mono); font-size: 0.7rem;
+    letter-spacing: 0.07em; text-transform: uppercase; color: var(--text3);
+  }
+  .form-group input,
+  .form-group textarea {
+    background: var(--card); color: var(--text);
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 10px 14px; font-family: var(--sans);
+    font-size: 0.94rem; outline: none; resize: vertical;
+    transition: border-color 0.15s;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: var(--accent); }
+  .form-group textarea { min-height: 120px; }
+  .form-submit {
+    background: var(--accent); color: #fff;
+    border: none; border-radius: 8px;
+    padding: 12px 24px; font-family: var(--sans);
+    font-size: 0.88rem; font-weight: 600;
+    cursor: pointer; align-self: flex-start;
+    letter-spacing: 0.03em;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .form-submit:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+  /* ── Footer ── */
+  .site-footer {
+    background: var(--bg); border-top: 1px solid var(--border);
+    padding: 20px 36px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 0.75rem;
+    max-width: 100%;
+  }
+  .site-footer span {
+    font-family: var(--mono); font-size: 0.7rem; color: var(--text3);
+  }
+  .site-footer a { color: var(--text3); text-decoration: none; }
+  .site-footer a:hover { color: var(--text); }
+
+  /* ── Responsive ── */
+  @media (max-width: 800px) {
+    .hero-text-panel { max-width: 100%; text-align: left; }
+    .hero-content { justify-content: flex-start; padding: 0 5vw; }
+    .hero-ctas { justify-content: flex-start; }
+    .hero-social { justify-content: flex-start; }
+    .about-inner { grid-template-columns: 1fr; }
+    .about-photo-wrap { display: none; }
+    .project-grid { grid-template-columns: 1fr; }
+    .testimonials { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .navbar { padding: 0 16px; }
+    .site-footer { padding: 16px 20px; }
   }
 </style>
 </head>
 <body>
-  <a class="skip-link" href="#home">Skip to content</a>
-  <div id="cursor-ring" aria-hidden="true"></div>
-  <div id="cursor-dot" aria-hidden="true"></div>
 
-  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-    <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-  </button>
+<!-- ── Navbar ── -->
+<nav class="navbar">
+  <a href="#hero" class="nav-logo">Raj Patel</a>
+  <div class="nav-right">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#validation">Research</a>
+    <a href="#contact">Contact</a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <span id="theme-icon">☼</span>
+    </button>
+  </div>
+</nav>
 
-  <nav class="rail" aria-label="Section navigation">
-    <a href="#home" data-section="home"><span class="rail-mark"></span><span class="rail-label">Home</span></a>
-    <a href="#projects" data-section="projects"><span class="rail-mark"></span><span class="rail-label">Projects</span></a>
-    <a href="#publications" data-section="publications"><span class="rail-mark"></span><span class="rail-label">Publications</span></a>
-    <a href="#timeline" data-section="timeline"><span class="rail-mark"></span><span class="rail-label">Timeline</span></a>
-    <a href="#recognition" data-section="recognition"><span class="rail-mark"></span><span class="rail-label">Recognition</span></a>
-  </nav>
+<!-- ── Side Scroll Spy ── -->
+<div class="section-indicator">
+  <a href="#hero"       class="indicator-item" data-section="hero">      <span class="indicator-dot"></span><span class="indicator-label">Home</span></a>
+  <a href="#about"      class="indicator-item" data-section="about">     <span class="indicator-dot"></span><span class="indicator-label">About</span></a>
+  <a href="#projects"   class="indicator-item" data-section="projects">  <span class="indicator-dot"></span><span class="indicator-label">Projects</span></a>
+  <a href="#validation" class="indicator-item" data-section="validation"><span class="indicator-dot"></span><span class="indicator-label">Research</span></a>
+  <a href="#contact"    class="indicator-item" data-section="contact">   <span class="indicator-dot"></span><span class="indicator-label">Contact</span></a>
+</div>
 
-  <main class="shell">
+<!-- ══════════════════════
+     § 1  HERO
+══════════════════════ -->
+<section id="hero">
+  <!-- swap src below for any wider hero image you have; currently reuses the portrait -->
+  <img src="1E14DFCE-D0F1-426E-8BD9-48F86859236F.JPG"
+       class="hero-bg" alt="" aria-hidden="true">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-text-panel">
+      <p class="hero-eyebrow">Molecular Biology · Computation · Science Communication</p>
+      <h1>Hi, I'm Raj —<br>a researcher <em>building systems</em> that uncover patterns.</h1>
+      <p class="hero-sub">
+        Incoming student at UW–Madison, bridging wet-lab science and computational tools to advance early disease detection.
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">See My Work</a>
+        <a href="#contact" class="btn-ghost-light">Get in Touch</a>
+      </div>
+      <div class="hero-social">
+        <a href="https://github.com/rajptl14" target="_blank" rel="noopener noreferrer">github</a>
+        <a href="https://www.linkedin.com/in/raj-patel-115321330" target="_blank" rel="noopener noreferrer">linkedin</a>
+        <a href="mailto:rhpatel6@wisc.edu">email</a>
+        <a href="#validation">papers</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>scroll</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
 
-    <header class="hero reveal" id="home">
-      <canvas id="net" aria-hidden="true"></canvas>
-      <div class="hero-inner">
-        <div class="hero-top">
-          <div class="portrait" id="portrait">
-            <img src="raj.png" alt="Raj Patel" loading="eager" onerror="this.parentElement.innerHTML='<span>RP</span>'; this.parentElement.style.fontSize='28px'; this.parentElement.style.fontFamily=&quot;'Newsreader',serif&quot;; this.parentElement.style.color='var(--accent)';">
-          </div>
-          <div class="hero-copy">
-            <span class="status-badge">Open to research collaborations</span>
-            <h1 id="hero-name">Raj <span class="accent">Patel</span></h1>
-            <p class="hero-sub">Incoming undergraduate at the <strong>University of Wisconsin–Madison</strong>, building computational tools for biomedical discovery — across neuroscience, oncology, and surgical medicine.</p>
-            <div class="hero-meta">
-              <span><strong>MCB · UW–Madison '30</strong></span>
-              <span>Python · ML · Computational Biology</span>
-            </div>
-            <div class="hero-links">
-              <a href="mailto:rhpatel6@wisc.edu">email</a>
-              <a href="https://drive.google.com/file/d/1kzynKZpoP8ODANV7VugmOHG_TSiotWo3/view?usp=sharing" target="_blank" rel="noopener">cv</a>
-              <a href="https://github.com/rajptl14" target="_blank" rel="noopener">github</a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener">linkedin</a>
-            </div>
+<!-- ══════════════════════
+     AFFILIATION RIBBON
+══════════════════════ -->
+<div class="ribbon">
+  <p class="ribbon-label">Affiliated with</p>
+  <div class="ribbon-track">
+    <!-- doubled for seamless loop -->
+    <span class="ribbon-item">IMSA</span>
+    <span class="ribbon-item">Northwestern University</span>
+    <span class="ribbon-item">UIC Minshall Lab</span>
+    <span class="ribbon-item">UW–Madison</span>
+    <span class="ribbon-item">AURA</span>
+    <span class="ribbon-item">Klein Lab</span>
+    <span class="ribbon-item">IMSA</span>
+    <span class="ribbon-item">Northwestern University</span>
+    <span class="ribbon-item">UIC Minshall Lab</span>
+    <span class="ribbon-item">UW–Madison</span>
+    <span class="ribbon-item">AURA</span>
+    <span class="ribbon-item">Klein Lab</span>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     § 2  ABOUT
+══════════════════════ -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-left">
+      <p class="section-eyebrow">Background</p>
+      <h2 class="section-heading">Who is Raj?</h2>
+      <p class="section-tagline">IMSA grad · Incoming UW–Madison Bio '30 · Independent researcher</p>
+      <p>
+        I'm an incoming freshman at the University of Wisconsin–Madison, having graduated from the Illinois Mathematics and Science Academy. Over the past few years I've conducted research with Northwestern University's Klein Lab and the University of Illinois Chicago's Minshall Lab — and co-founded AURA, a fundraiser dedicated to early breast cancer detection and awareness.
+      </p>
+      <p>
+        I'm drawn to problems at the intersection of computation and biology: early disease detection, pattern discovery in complex biological data, and building tools that make scientific insight more accessible. Outside research, I think a lot about science communication and why it matters as much as the science itself.
+      </p>
+      <a href="#contact" class="btn-warm">Get in Touch</a>
+      <div class="skill-grid">
+        <div class="skill-row">
+          <h5>Computation</h5>
+          <div class="skill-pills">
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">Data Analysis</span>
+            <span class="skill-pill">ML</span>
+            <span class="skill-pill">Bioinformatics</span>
+            <span class="skill-pill">R</span>
           </div>
         </div>
-
-        <div class="focus-box">
-          <p>I work at the overlap of computational biology, machine learning, and wet-lab technique — building tools that hold up against real biology, not just a benchmark.</p>
-          <p>Currently building ML pipelines for robotic surgical video understanding with a Stanford collaboration, alongside a first-author paper on hidden Alzheimer's MRI subtypes submitted to CVPR 2026.</p>
+        <div class="skill-row">
+          <h5>Wet Lab</h5>
+          <div class="skill-pills">
+            <span class="skill-pill">Cell Culture</span>
+            <span class="skill-pill">PCR</span>
+            <span class="skill-pill">Microscopy</span>
+            <span class="skill-pill">Lab Protocol Design</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <h5>Web & Tools</h5>
+          <div class="skill-pills">
+            <span class="skill-pill">HTML/CSS/JS</span>
+            <span class="skill-pill">Git</span>
+            <span class="skill-pill">GitHub Pages</span>
+          </div>
         </div>
       </div>
-    </header>
+    </div>
+    <div class="about-photo-wrap">
+      <img src="1E14DFCE-D0F1-426E-8BD9-48F86859236F.JPG"
+           alt="Raj Patel"
+           class="about-photo">
+    </div>
+  </div>
+</section>
 
-    <section id="skills">
-      <div class="section-head"><h2>Skills</h2><span class="kicker mono">Bench + code</span></div>
-      <div class="skills-grid">
-        <div class="skill-group">
-          <h3>Wet Lab</h3>
-          <div class="skill-list"><span>Cell Culture</span><span>Fluorescence Microscopy</span><span>TEER Assays</span><span>Bradford Assays</span></div>
+<!-- ══════════════════════
+     § 3  PROJECTS
+══════════════════════ -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-eyebrow">Selected Work</p>
+      <h2 class="section-heading">Projects</h2>
+      <p>Problem → approach → outcome. Replace placeholders with your real titles, descriptions, tags, and links.</p>
+    </div>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <h3>Project Title</h3>
+        <p class="project-eyebrow">CATEGORY · STATUS</p>
+        <p>Describe the problem, your approach, and the measurable outcome. Two or three sentences works well.</p>
+        <div class="project-tags">
+          <span>Tag</span><span>Tag</span><span>Tag</span>
         </div>
-        <div class="skill-group">
-          <h3>Computational</h3>
-          <div class="skill-list"><span>Python</span><span>PyTorch</span><span>scikit-learn</span><span>MRI Processing</span><span>Computer Vision</span><span>R</span></div>
-        </div>
-        <div class="skill-group">
-          <h3>Writing &amp; Comm.</h3>
-          <div class="skill-list"><span>Manuscripts</span><span>LaTeX</span><span>Conference Talks</span><span>Data Presentation</span></div>
+        <div class="project-links">
+          <a href="#" target="_blank" rel="noopener noreferrer">github ↗</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">demo ↗</a>
         </div>
       </div>
-    </section>
 
-    <section id="projects">
-      <div class="section-head"><h2>Projects</h2><span class="kicker mono">/ 01</span></div>
-      <div class="builds-grid" id="builds-grid"></div>
-    </section>
+      <div class="project-card">
+        <h3>Project Title</h3>
+        <p class="project-eyebrow">CATEGORY · STATUS</p>
+        <p>Describe the problem, your approach, and the measurable outcome. Two or three sentences works well.</p>
+        <div class="project-tags">
+          <span>Tag</span><span>Tag</span><span>Tag</span>
+        </div>
+        <div class="project-links">
+          <a href="#" target="_blank" rel="noopener noreferrer">github ↗</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">demo ↗</a>
+        </div>
+      </div>
 
-    <section id="publications">
-      <div class="section-head"><h2>Publications</h2><span class="kicker mono">/ 02</span></div>
-      <div class="publication-list" id="pub-list"></div>
-    </section>
+      <div class="project-card">
+        <h3>Project Title</h3>
+        <p class="project-eyebrow">CATEGORY · STATUS</p>
+        <p>Describe the problem, your approach, and the measurable outcome. Two or three sentences works well.</p>
+        <div class="project-tags">
+          <span>Tag</span><span>Tag</span><span>Tag</span>
+        </div>
+        <div class="project-links">
+          <a href="#" target="_blank" rel="noopener noreferrer">github ↗</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">demo ↗</a>
+        </div>
+      </div>
 
-    <section id="timeline">
-      <div class="section-head"><h2>Timeline</h2><span class="kicker mono">/ 03</span></div>
-      <div id="timeline-list"></div>
-    </section>
+      <div class="project-card add-more">
+        <p>+ add another project</p>
+      </div>
 
-    <section id="recognition">
-      <div class="section-head"><h2>Recognition</h2><span class="kicker mono">/ 04</span></div>
-      <ul class="recog-list" id="recog-list"></ul>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <footer>
-      <span>Good tools should hold up against reality, not just a benchmark.</span>
-      <span>Updated 2026 · <a href="mailto:rhpatel6@wisc.edu">email me</a></span>
-    </footer>
+<!-- ══════════════════════
+     § 4  VALIDATION
+══════════════════════ -->
+<section id="validation">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-eyebrow">Peer & Institutional Validation</p>
+      <h2 class="section-heading">Research & Recognition</h2>
+      <p>Papers, posters, and words from mentors. Replace placeholders with real quotes and affiliation logos.</p>
+    </div>
 
-  </main>
+    <div class="testimonials">
+      <div class="t-card">
+        <p class="t-quote">Add a quote from a research mentor, PI, or collaborator here. A sentence or two on your contribution or research impact.</p>
+        <div class="t-author">
+          <div class="t-avatar">PI</div>
+          <div class="t-info">
+            <strong>Name, Title</strong>
+            <span>Institution / Lab</span>
+          </div>
+        </div>
+      </div>
+      <div class="t-card placeholder">
+        <p>+ add a second testimonial</p>
+      </div>
+    </div>
+
+    <div class="aff-ribbon">
+      <p>Affiliated with</p>
+      <div class="aff-logos">
+        <span class="aff-logo">IMSA</span>
+        <span class="aff-logo">Northwestern</span>
+        <span class="aff-logo">UIC</span>
+        <span class="aff-logo">UW–Madison</span>
+        <span class="aff-logo">AURA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════
+     § 5  CONTACT
+══════════════════════ -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <p class="section-eyebrow">Let's Connect</p>
+      <h2 class="section-heading">Have a research idea or collaboration in mind?</h2>
+      <p>Whether it's computational biology, science communication, or an undergraduate research opportunity — I'd love to hear from you.</p>
+      <div class="contact-email">
+        <a href="mailto:rhpatel6@wisc.edu">rhpatel6@wisc.edu</a>
+      </div>
+      <div class="social-rack">
+        <a href="https://github.com/rajptl14" target="_blank" rel="noopener noreferrer">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/raj-patel-115321330" target="_blank" rel="noopener noreferrer">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="mailto:rhpatel6@wisc.edu">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email
+        </a>
+      </div>
+    </div>
+
+    <form class="contact-form" onsubmit="handleForm(event)">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group">
+        <label for="msg">Message</label>
+        <textarea id="msg" name="message" placeholder="Tell me what's on your mind..." required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Message →</button>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <span>© 2026 Raj Patel</span>
+  <span>
+    <a href="https://github.com/rajptl14" target="_blank" rel="noopener noreferrer">GitHub</a> ·
+    <a href="https://www.linkedin.com/in/raj-patel-115321330" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·
+    <a href="mailto:rhpatel6@wisc.edu">Email</a>
+  </span>
+</footer>
 
 <script>
-  const DATA = {
-    builds: [
-      { name: "AI Surgical Robotics", stat: "Stanford Collaboration · 2026", desc: "ML pipelines for robotic surgical video understanding, automated instrument tracking, and context reasoning.", stack: ["Computer Vision","Video ML","Robotics"], link: { label: "GitHub", url: "https://github.com/rajptl14" } },
-      { name: "Alzheimer's MRI Subtype Discovery", stat: "CVPR 2026 · First Author", desc: "Unsupervised learning workflow isolating hidden structural and functional subtypes from multimodal MRI data.", stack: ["Unsupervised Learning","MRI","Clustering"], link: { label: "Read Paper", url: "https://drive.google.com/file/d/1g3ar25YMvLuOJoCNnqaFKBgEcfqEkeRv/view?usp=sharing" } },
-      { name: "AURA Awareness", stat: "Nonprofit · $750+ Raised", desc: "Cancer detection and education initiative raising community funds and expanding early screening outreach.", stack: ["Public Health","Outreach"], link: { label: "Visit Site", url: "https://aura-awareness.vercel.app/" } },
-      { name: "NU-9 Live-Cell Screening", stat: "Klein Lab, Northwestern · 2024–25", desc: "Live-cell screening of NU-9 derivatives against toxic protein assemblies in Alzheimer's models via fluorescence microscopy.", stack: ["Fluorescence Microscopy","Alzheimer's"], link: null },
-      { name: "Ion Channel Modulation in Cancer", stat: "Minshall Lab, UIC · 2023–24", desc: "Evaluated Desmoplakin and Plakophilin expression via TEER and protein quantification assays in cancer models.", stack: ["TEER Assays","Cancer Biology"], link: null },
-      { name: "AIthena Research Group", stat: "Co-Founder · 2025", desc: "Independent student research group extending live-cell autophagy work from the Klein Lab, Northwestern University.", stack: ["Student Research","Leadership"], link: null }
-    ],
-    publications: [
-      { title: "Multimodal Discovery of Hidden Alzheimer's Disease Subtypes from MRI Data", authors: "<strong>Patel, R.</strong>, et al.", venue: "CVPR 2026 · Submission", url: "https://drive.google.com/file/d/1g3ar25YMvLuOJoCNnqaFKBgEcfqEkeRv/view?usp=sharing" },
-      { title: "Live-Cell Screening of Novel Autophagy-Enhancing Derivatives of NU-9 in Alzheimer's Disease", authors: "<strong>Patel, R.</strong>; Norwar, R.; Klein, W.L.", venue: "IMSAloquium Oral Proceedings, 2025", url: "" },
-      { title: "Ion Channel Modulation of Desmosomal Proteins in Cancer", authors: "<strong>Patel, R.</strong>; Blankenship, J.; Minshall, R.D.", venue: "IMSAloquium Oral Proceedings, 2024", url: "" },
-      { title: "Assessing Page Length in Correspondence to Detection False Positives", authors: "<strong>Patel, R.</strong>", venue: "ISAAPT Conference, 2024", url: "" }
-    ],
-    timeline: [
-      { date: "2026", tag: "collab",   label: "Collab",   text: "Began Surgical Robotics AI collaboration at Stanford University." },
-      { date: "2026", tag: "research", label: "Submit",   text: "First-author paper submitted to CVPR 2026." },
-      { date: "2025", tag: "found",    label: "Found",    text: "Co-founded AIthena Research Group." },
-      { date: "2024–25", tag: "research", label: "Research", text: "Led NU-9 live-cell screening study at Klein Lab, Northwestern." },
-      { date: "2023–24", tag: "research", label: "Research", text: "Ion channel research at Minshall Lab, University of Illinois Chicago." },
-      { date: "2023", tag: "milestone", label: "Start", text: "Began research at Illinois Mathematics and Science Academy (IMSA)." }
-    ],
-    recognition: [
-      { label: "CVPR 2026, First-Author Submission", year: "2026" },
-      { label: "Stanford Surgical Robotics AI Collaboration", year: "2026" },
-      { label: "IMSAloquium, Oral Proceedings (x2)", year: "2024–25" },
-      { label: "ISAAPT Conference Presentation", year: "2024" },
-      { label: "AIthena Research Group, Co-Founder", year: "2025" },
-      { label: "AURA Awareness, $750+ Raised", year: "2024–26" }
-    ]
-  };
-
-  const $ = id => document.getElementById(id);
-
-  $("builds-grid").innerHTML = DATA.builds.map(b => `
-    <div class="build-card">
-      <div class="build-name">${b.name}</div>
-      <div class="build-stat">${b.stat}</div>
-      <div class="build-desc">${b.desc}</div>
-      <div class="build-stack">${b.stack.map(s => `<span class="stack-pill">${s}</span>`).join("")}</div>
-      ${b.link ? `<a class="build-link" href="${b.link.url}" target="_blank" rel="noopener">${b.link.label} →</a>` : ""}
-    </div>`).join("");
-
-  $("pub-list").innerHTML = DATA.publications.map(p => `
-    <article class="publication">
-      <div>
-        <h3>${p.title}</h3>
-        <p class="authors">${p.authors}</p>
-        <p class="venue">${p.venue}</p>
-      </div>
-      ${p.url ? `<a class="paper-link" href="${p.url}" target="_blank" rel="noopener" aria-label="Read paper">↗</a>` : ""}
-    </article>`).join("");
-
-  $("timeline-list").innerHTML = DATA.timeline.map(t => `
-    <div class="timeline-item">
-      <div class="timeline-date">${t.date}</div>
-      <div class="timeline-content"><span class="tag tag-${t.tag}">${t.label}</span>${t.text}</div>
-    </div>`).join("");
-
-  $("recog-list").innerHTML = DATA.recognition.map(r => `
-    <li><span>${r.label}</span><span>${r.year}</span></li>`).join("");
-
-  // theme toggle
-  const root = document.documentElement;
-  const toggleBtn = $('theme-toggle');
-  const themeIcon = $('theme-icon');
-  function applyTheme(dark) {
-    root.classList.toggle('dark', dark);
-    themeIcon.innerHTML = dark
-      ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" stroke="none"/>'
-      : '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>';
-    try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
-  }
-  let isDark;
-  try {
-    const saved = localStorage.getItem('theme');
-    isDark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
-  } catch (e) {
-    isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  }
-  applyTheme(isDark);
-  toggleBtn.addEventListener('click', () => { isDark = !isDark; applyTheme(isDark); });
-
-  // reveal-on-scroll
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); }
-    });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
-
-  // active rail tracking
-  const railLinks = [...document.querySelectorAll('.rail a')];
-  const tracked = railLinks.map(l => document.getElementById(l.dataset.section));
-  function setActiveRail() {
-    const marker = window.innerHeight * 0.4;
-    let active = tracked[0];
-    tracked.forEach(sec => { if (sec && sec.getBoundingClientRect().top <= marker) active = sec; });
-    railLinks.forEach(l => l.classList.toggle('active', active && l.dataset.section === active.id));
-  }
-  window.addEventListener('scroll', setActiveRail, { passive: true });
-  window.addEventListener('resize', setActiveRail);
-  setActiveRail();
-
-  // constellation canvas in hero
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const canvas = $('net');
-  const hero = document.querySelector('.hero');
-  const ctx = canvas.getContext('2d');
-  let cw = 0, ch = 0, ratio = 1, nodes = [];
-
-  function sizeNet() {
-    ratio = Math.min(window.devicePixelRatio || 1, 2);
-    cw = hero.clientWidth + 80; ch = hero.clientHeight + 30;
-    canvas.width = cw * ratio; canvas.height = ch * ratio;
-    canvas.style.width = cw + 'px'; canvas.style.height = ch + 'px';
-    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-    const n = Math.max(16, Math.min(34, Math.floor(cw * ch / 17000)));
-    nodes = Array.from({ length: n }, () => ({ x: Math.random()*cw, y: Math.random()*ch, vx: (Math.random()-.5)*.18, vy: (Math.random()-.5)*.18 }));
-  }
-  function drawNet() {
-    ctx.clearRect(0,0,cw,ch);
-    ctx.lineWidth = 1.2;
-    nodes.forEach(n => { if (!reduceMotion) { n.x += n.vx; n.y += n.vy; if (n.x<0||n.x>cw) n.vx*=-1; if (n.y<0||n.y>ch) n.vy*=-1; } });
-    nodes.forEach((n,i) => {
-      nodes.slice(i+1).forEach(o => {
-        const d = Math.hypot(n.x-o.x, n.y-o.y);
-        if (d < 105) { ctx.strokeStyle = `rgba(31,157,92,${.34*(1-d/105)})`; ctx.beginPath(); ctx.moveTo(n.x,n.y); ctx.lineTo(o.x,o.y); ctx.stroke(); }
-      });
-      ctx.fillStyle = 'rgba(31,157,92,.75)'; ctx.beginPath(); ctx.arc(n.x,n.y,1.9,0,Math.PI*2); ctx.fill();
-    });
-    if (!reduceMotion) requestAnimationFrame(drawNet);
-  }
-  window.addEventListener('resize', sizeNet);
-  sizeNet(); drawNet();
-
-  // custom cursor
-  const ring = $('cursor-ring'), dot = $('cursor-dot');
-  let rx=0, ry=0, cx=0, cy=0;
-  window.addEventListener('mousemove', e => {
-    document.body.classList.add('cursor-ready');
-    cx = e.clientX; cy = e.clientY;
-    dot.style.left = cx+'px'; dot.style.top = cy+'px';
+  // Theme
+  const toggle = document.getElementById('theme-toggle');
+  const icon   = document.getElementById('theme-icon');
+  toggle.addEventListener('click', () => {
+    const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
+    icon.textContent = dark ? '☼' : '☾';
   });
-  function moveRing(){ rx += (cx-rx)*.2; ry += (cy-ry)*.2; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(moveRing); }
-  if (!reduceMotion) moveRing();
-  document.querySelectorAll('a, .build-card, .publication, .skill-group').forEach(el => {
-    el.addEventListener('mouseenter', () => ring.classList.add('is-active'));
-    el.addEventListener('mouseleave', () => ring.classList.remove('is-active'));
-  });
+
+  // Scroll spy
+  const items = document.querySelectorAll('.indicator-item');
+  const sects = ['hero','about','projects','validation','contact']
+    .map(id => document.getElementById(id)).filter(Boolean);
+  const spy = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) items.forEach(i => i.classList.toggle('active', i.dataset.section === e.target.id)); }),
+    { rootMargin: '-40% 0px -40% 0px', threshold: 0 }
+  );
+  sects.forEach(s => spy.observe(s));
+
+  // Form
+  function handleForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = 'Sent ✓'; btn.style.background = '#3da333';
+    setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; e.target.reset(); }, 3000);
+  }
 </script>
 </body>
 </html>

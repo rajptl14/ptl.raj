@@ -35,20 +35,20 @@
   html[data-theme="dark"] {
     --bg:          #0f0f0f;
     --text:        #f0f0f0;
-    --text2:       #999;
-    --text3:       #555;
+    --text2:       #b8b8b8;
+    --text3:       #777;
     --card:        #1a1a1a;
-    --border:      #272727;
-    --border2:     #2f2f2f;
+    --border:      #2a2a2a;
+    --border2:     #333;
     --nav-bg:      rgba(15,15,15,0.95);
-    --nav-border:  rgba(255,255,255,0.07);
+    --nav-border:  rgba(255,255,255,0.08);
     --dot-color:   rgba(255,255,255,0.06);
     --warm-bg:     #141414;
-    --cream-card:  #1a1a1a;
-    --cream-border:#272727;
-    --cream-tag:   #222;
-    --cream-tag-t: #888;
-    --eyebrow:     #666;
+    --cream-card:  #1c1c1c;
+    --cream-border:#2a2a2a;
+    --cream-tag:   #252525;
+    --cream-tag-t: #aaa;
+    --eyebrow:     #777;
   }
 
   /* ── Reset ── */
@@ -130,27 +130,42 @@
     width: 100%; height: calc(100vh - 64px);
     overflow: hidden;
     display: flex; align-items: stretch;
+    background: #ffffff;
   }
-  .hero-bg {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover; object-position: center top;
-    display: block;
+  /* white dot grid */
+  #hero::before {
+    content: '';
+    position: absolute; inset: 0; z-index: 0;
+    background-image: radial-gradient(circle, rgba(0,0,0,0.12) 1.5px, transparent 1.5px);
+    background-size: 28px 28px;
   }
-  /* subtle dark gradient so text on right is legible */
-  .hero-overlay {
-    position: absolute; inset: 0;
+  /* subtle left-side tint behind helix */
+  #hero::after {
+    content: '';
+    position: absolute; inset: 0; z-index: 0;
     background: linear-gradient(
       to right,
-      rgba(0,0,0,0.10) 0%,
-      rgba(0,0,0,0.02) 45%,
-      rgba(0,0,0,0.52) 100%
+      rgba(240,248,255,0.55) 0%,
+      rgba(255,255,255,0) 55%
     );
   }
+  .hero-bg { display: none; }
+  .hero-overlay { display: none; }
   .hero-content {
-    position: relative; z-index: 2;
+    position: relative; z-index: 4;
     display: flex; align-items: center; justify-content: flex-end;
     width: 100%; padding: 0 7vw;
+  }
+  .hero-canvas {
+    position: absolute; inset: 0; z-index: 3;
+    pointer-events: none;
+  }
+  .dna-canvas {
+    position: absolute;
+    left: 0; top: 0;
+    width: 62%; height: 100%;
+    z-index: 3;
+    pointer-events: none;
   }
   .hero-text-panel {
     max-width: 400px;
@@ -159,18 +174,18 @@
   .hero-eyebrow {
     font-family: var(--mono); font-size: 0.72rem;
     letter-spacing: 0.12em; text-transform: uppercase;
-    color: rgba(255,255,255,0.7); margin-bottom: 0.9rem;
+    color: rgba(0,0,0,0.45); margin-bottom: 0.9rem;
   }
   .hero h1 {
     font-family: var(--serif); font-weight: 400;
     font-size: clamp(2.6rem, 5.5vw, 3.8rem);
-    line-height: 1.08; color: #fff;
+    line-height: 1.08; color: #0f0f0f;
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
   }
-  .hero h1 em { color: var(--accent); font-style: italic; }
+  .hero h1 em { color: #2a7de1; font-style: italic; }
   .hero-sub {
-    font-size: 1rem; color: rgba(255,255,255,0.82);
+    font-size: 1rem; color: rgba(0,0,0,0.6);
     line-height: 1.7; margin-bottom: 1.75rem;
     max-width: 360px; margin-left: auto;
   }
@@ -186,30 +201,29 @@
   .btn-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); transform: translateY(-1px); }
   .btn-ghost-light {
     display: inline-block; text-decoration: none;
-    background: rgba(255,255,255,0.12);
-    color: #fff; font-size: 0.85rem; font-weight: 600;
+    background: transparent;
+    color: #0f0f0f; font-size: 0.85rem; font-weight: 600;
     padding: 11px 22px; border-radius: 8px;
-    border: 1.5px solid rgba(255,255,255,0.45);
+    border: 1.5px solid rgba(0,0,0,0.25);
     transition: background 0.2s, transform 0.15s;
-    backdrop-filter: blur(4px);
   }
-  .btn-ghost-light:hover { background: rgba(255,255,255,0.22); transform: translateY(-1px); }
+  .btn-ghost-light:hover { background: rgba(0,0,0,0.05); transform: translateY(-1px); }
   .hero-social {
     display: flex; gap: 1.1rem; justify-content: flex-end;
     margin-top: 1.4rem;
   }
   .hero-social a {
     font-family: var(--mono); font-size: 0.72rem;
-    letter-spacing: 0.05em; color: rgba(255,255,255,0.6);
+    letter-spacing: 0.05em; color: rgba(0,0,0,0.38);
     text-decoration: none; transition: color 0.15s;
   }
-  .hero-social a:hover { color: #fff; }
+  .hero-social a:hover { color: rgba(0,0,0,0.75); }
   /* scroll hint */
   .scroll-hint {
     position: absolute; bottom: 28px; left: 50%;
     transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center;
-    gap: 6px; z-index: 3; opacity: 0.6;
+    gap: 6px; z-index: 5; opacity: 0.6;
     animation: bounce 2.4s ease-in-out infinite;
   }
   .scroll-hint span {
@@ -624,7 +638,9 @@
      § 1  HERO
 ══════════════════════ -->
 <section id="hero">
-  <!-- swap src below for any wider hero image you have; currently reuses the portrait -->
+  <!-- animated CSS background — replace src with a real photo to override -->
+  <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+  <canvas class="dna-canvas" id="dna-canvas" aria-hidden="true"></canvas>
   <img src=""
        class="hero-bg" alt="" aria-hidden="true">
   <div class="hero-overlay"></div>
@@ -957,6 +973,209 @@
     { rootMargin: '-40% 0px -40% 0px', threshold: 0 }
   );
   sects.forEach(s => spy.observe(s));
+
+  // ── DNA Double Helix ──
+  (function() {
+    const bc = document.getElementById('dna-canvas');
+    if (!bc) return;
+    const bx = bc.getContext('2d');
+    let W, H;
+
+    function resize() {
+      W = bc.width  = bc.offsetWidth;
+      H = bc.height = bc.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // ── Diagonal DNA double helix ──
+    // The helix axis runs at ~40° diagonal (bottom-left → top-right)
+    // We parameterize along a diagonal axis and oscillate perpendicular to it.
+
+    const PAIRS    = 48;
+    const PITCH    = 38;      // spacing between base pairs along axis
+    const RADIUS   = 110;     // helix radius (perpendicular amplitude)
+    const STRAND_R = 7.5;
+    const RUNG_W   = 4;
+
+    // Colors: crisp on white — green strand vs navy/indigo strand
+    const COL_A = '#3bb54a';   // green backbone
+    const COL_B = '#1a56db';   // indigo backbone
+    // Base pair colors (rung halves)
+    const RUNG_PAIRS = [
+      ['#3bb54a', '#1a56db'],  // A-T
+      ['#059669', '#7c3aed'],  // G-C teal/purple
+      ['#16a34a', '#2563eb'],
+      ['#0d9488', '#4f46e5'],
+    ];
+
+    // Diagonal axis direction (unit vector)
+    const ANG = -Math.PI * 0.35;  // ~-35° from horizontal → goes up-right
+    const ax = Math.cos(ANG), ay = Math.sin(ANG);
+    // Perpendicular to axis (for helix oscillation in x-y plane)
+    const px_dir = -ay, py_dir = ax;
+
+    function draw(t) {
+      bx.clearRect(0, 0, W, H);
+
+      const spin  = t * 0.00050;
+      // Animate the helix scrolling along its axis (feels like it flows)
+      const scroll = (t * 0.028) % PITCH;
+
+      // Total axis length to cover canvas diagonal + overflow
+      const diagLen = Math.sqrt(W*W + H*H) + PITCH * 4;
+      // Start point: offset from center so helix runs through canvas nicely
+      const startX = W * 0.0 - ax * diagLen * 0.05;
+      const startY = H * 1.05 - ay * diagLen * 0.05;
+
+      const totalPairs = Math.ceil(diagLen / PITCH) + 2;
+
+      const items = [];
+      const s1pts = [], s2pts = [];
+
+      for (let i = 0; i < totalPairs; i++) {
+        const dist = i * PITCH - scroll;
+        // Position along diagonal axis
+        const mx = startX + ax * dist;
+        const my = startY + ay * dist;
+
+        // Skip if far outside canvas
+        if (mx < -RADIUS*2 && my < -RADIUS*2) continue;
+        if (mx > W + RADIUS*2 && my < -RADIUS*2) continue;
+
+        const angle = spin + i * (Math.PI * 2 / (PAIRS / 4));
+        const z1 = Math.sin(angle);
+        const z2 = Math.sin(angle + Math.PI);
+
+        // Helix oscillates perpendicular to axis
+        const osc1 = Math.cos(angle);
+        const osc2 = Math.cos(angle + Math.PI);
+
+        const x1 = mx + px_dir * osc1 * RADIUS;
+        const y1 = my + py_dir * osc1 * RADIUS;
+        const x2 = mx + px_dir * osc2 * RADIUS;
+        const y2 = my + py_dir * osc2 * RADIUS;
+
+        const d1 = (z1 + 1) / 2;
+        const d2 = (z2 + 1) / 2;
+        const r1 = STRAND_R * (0.5 + d1 * 0.7);
+        const r2 = STRAND_R * (0.5 + d2 * 0.7);
+        const a1 = 0.4 + d1 * 0.6;
+        const a2 = 0.4 + d2 * 0.6;
+
+        const rungCol = RUNG_PAIRS[i % RUNG_PAIRS.length];
+        items.push({ type: 'rung', x1, y1, x2, y2, z: (z1+z2)/2, col: rungCol, a: 0.6 });
+        items.push({ type: 'node', x: x1, y: y1, z: z1, r: r1, a: a1, col: COL_A });
+        items.push({ type: 'node', x: x2, y: y2, z: z2, r: r2, a: a2, col: COL_B });
+
+        s1pts.push({ x: x1, y: y1, d: dist });
+        s2pts.push({ x: x2, y: y2, d: dist });
+      }
+
+      // Draw backbone strands as smooth curves
+      function drawStrand(pts, color) {
+        if (pts.length < 2) return;
+        pts.sort((a,b) => a.d - b.d);
+        bx.save();
+        bx.beginPath();
+        bx.moveTo(pts[0].x, pts[0].y);
+        for (let i = 1; i < pts.length - 1; i++) {
+          const mx2 = (pts[i].x + pts[i+1].x) / 2;
+          const my2 = (pts[i].y + pts[i+1].y) / 2;
+          bx.quadraticCurveTo(pts[i].x, pts[i].y, mx2, my2);
+        }
+        bx.lineTo(pts[pts.length-1].x, pts[pts.length-1].y);
+        bx.strokeStyle = color;
+        bx.lineWidth = 2.5;
+        bx.globalAlpha = 0.5;
+        bx.stroke();
+        bx.restore();
+      }
+      drawStrand(s1pts, COL_A);
+      drawStrand(s2pts, COL_B);
+
+      // Sort back-to-front by z then draw
+      items.sort((a, b) => a.z - b.z);
+
+      items.forEach(item => {
+        if (item.type === 'rung') {
+          const grd = bx.createLinearGradient(item.x1, item.y1, item.x2, item.y2);
+          grd.addColorStop(0,   item.col[0] + 'dd');
+          grd.addColorStop(0.5, 'rgba(200,220,255,0.3)');
+          grd.addColorStop(1,   item.col[1] + 'dd');
+          bx.beginPath();
+          bx.moveTo(item.x1, item.y1);
+          bx.lineTo(item.x2, item.y2);
+          bx.strokeStyle = grd;
+          bx.lineWidth = RUNG_W;
+          bx.globalAlpha = item.a;
+          bx.stroke();
+          bx.globalAlpha = 1;
+        } else {
+          const d = (item.z + 1) / 2;
+          // Soft glow
+          const g = bx.createRadialGradient(item.x, item.y, 0, item.x, item.y, item.r * 2.2);
+          g.addColorStop(0,   item.col + 'ee');
+          g.addColorStop(0.5, item.col + '55');
+          g.addColorStop(1,   item.col + '00');
+          bx.beginPath();
+          bx.arc(item.x, item.y, item.r * 2.2, 0, Math.PI * 2);
+          bx.fillStyle = g;
+          bx.globalAlpha = item.a * 0.6;
+          bx.fill();
+          // Solid core with highlight
+          bx.beginPath();
+          bx.arc(item.x, item.y, item.r, 0, Math.PI * 2);
+          bx.fillStyle = item.col;
+          bx.globalAlpha = item.a;
+          bx.fill();
+          // White specular highlight
+          bx.beginPath();
+          bx.arc(item.x - item.r * 0.3, item.y - item.r * 0.3, item.r * 0.35, 0, Math.PI * 2);
+          bx.fillStyle = 'rgba(255,255,255,0.75)';
+          bx.globalAlpha = item.a * d;
+          bx.fill();
+          bx.globalAlpha = 1;
+        }
+      });
+
+      // Fade all 4 edges so helix looks infinite
+      const fH = H * 0.14, fW = W * 0.08;
+      const topF = bx.createLinearGradient(0,0,0,fH);
+      topF.addColorStop(0,'rgba(255,255,255,1)'); topF.addColorStop(1,'rgba(255,255,255,0)');
+      bx.fillStyle=topF; bx.fillRect(0,0,W,fH);
+      const botF = bx.createLinearGradient(0,H-fH,0,H);
+      botF.addColorStop(0,'rgba(255,255,255,0)'); botF.addColorStop(1,'rgba(255,255,255,1)');
+      bx.fillStyle=botF; bx.fillRect(0,H-fH,W,fH);
+      const leftF = bx.createLinearGradient(0,0,fW,0);
+      leftF.addColorStop(0,'rgba(255,255,255,1)'); leftF.addColorStop(1,'rgba(255,255,255,0)');
+      bx.fillStyle=leftF; bx.fillRect(0,0,fW,H);
+      const rightF = bx.createLinearGradient(W-fW*2,0,W,0);
+      rightF.addColorStop(0,'rgba(255,255,255,0)'); rightF.addColorStop(1,'rgba(255,255,255,1)');
+      bx.fillStyle=rightF; bx.fillRect(W-fW*2,0,fW*2,H);
+
+      // ── "Raj Patel" name label in canvas ──
+      bx.save();
+      bx.globalAlpha = 1;
+      // Large serif name
+      bx.font = `italic 600 clamp(2rem,5vw,3.4rem) 'DM Serif Display', Georgia, serif`;
+      const nameSize = Math.min(W * 0.11, 56);
+      bx.font = `italic ${nameSize}px 'DM Serif Display', Georgia, serif`;
+      bx.fillStyle = '#0f0f0f';
+      bx.textAlign = 'left';
+      bx.textBaseline = 'middle';
+      bx.fillText('Raj Patel', W * 0.07, H * 0.75);
+      // Tagline below name
+      const tagSize = Math.min(W * 0.028, 14);
+      bx.font = `${tagSize}px 'DM Mono', monospace`;
+      bx.fillStyle = 'rgba(0,0,0,0.38)';
+      bx.fillText('MCB · UW–MADISON', W * 0.075, H * 0.75 + nameSize * 0.9);
+      bx.restore();
+
+      requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+  })();
 
   // Form
   function handleForm(e) {
